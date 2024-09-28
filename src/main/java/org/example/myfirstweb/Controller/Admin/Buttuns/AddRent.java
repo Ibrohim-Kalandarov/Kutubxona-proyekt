@@ -11,7 +11,6 @@ import org.example.myfirstweb.Service.UserService;
 import org.example.myfirstweb.entity.Book;
 import org.example.myfirstweb.entity.Rent;
 import org.example.myfirstweb.entity.User;
-
 import java.io.IOException;
 import java.time.LocalDate;
 
@@ -52,6 +51,7 @@ public class AddRent extends HttpServlet {
             req.setAttribute("warning", "Sana Xato Kiritildi");
             req.setAttribute("url", "/admincabinet");
             req.getRequestDispatcher("/templates/WARNING.jsp").forward(req, resp);
+
         } else {
 
             book.setQuantity(book.getQuantity() - 1);

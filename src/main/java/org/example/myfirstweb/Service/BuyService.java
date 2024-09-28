@@ -10,6 +10,9 @@ import java.util.List;
 public class BuyService {
 
 
+
+
+
     public void add(Buy buy) {
         EntityManager entityManager = Datasource.getEntityManager();
         entityManager.getTransaction().begin();

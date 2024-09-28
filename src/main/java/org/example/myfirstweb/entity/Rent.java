@@ -19,6 +19,7 @@ import java.time.LocalDate;
 @NamedQuery(name = "getUserActiveRents", query = "select r from Rent r where r.user = :user and r.active = true")
 @NamedQuery(name = "getUserPassiveRents", query = "select r from Rent r where r.user = :user and r.active = false ")
 @NamedQuery(name = "getAllRentbyUser",query = "select r from Rent r where r.user = :user")
+@NamedQuery(name = "jarimali",query = "select r from Rent r where r.active=false and r.jarima>0.0")
 public class Rent {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

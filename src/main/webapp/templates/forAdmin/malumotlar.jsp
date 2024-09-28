@@ -44,6 +44,11 @@
 <div class="button-container">
 
     <div class="button-row">
+        <form action="${pageContext.request.contextPath}/show-rents-J" method="get">
+            <button type="submit">Jarima bilan tugatilgan ijaralar</button>
+        </form>
+    </div>
+    <div class="button-row">
         <form action="${pageContext.request.contextPath}/showactiveusers" method="get">
             <button type="submit">Show Active Users</button>
         </form>
