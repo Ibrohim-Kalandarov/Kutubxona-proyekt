@@ -1,0 +1,89 @@
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title>Show All Rents</title>
+    <style>
+        /* Sahifani o'rtaga joylashtirish */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Tablitsani markaziy qilish va oddiy oq fon */
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        /* Tablitsaga chiziqlarni olib tashlash */
+        table, th, td {
+            border: none;
+        }
+
+        /* Tugmaning rangini to'q yashil qilish */
+        button {
+            padding: 8px 16px;
+            font-size: 14px;
+            background-color: #2E7D32;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #1B5E20;
+        }
+    </style>
+</head>
+<body>
+<h2><c:out value="${malumot}" /></h2>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>User Id</th>
+        <th>Book Id</th>
+        <th>From Date</th>
+        <th>To Date</th>
+        <th>Jarima</th>
+        <th>Active</th>
+        <th>Actions</th>
+    </tr>
+    <c:forEach var="rent" items="${rents}">
+        <tr>
+            <td>${rent.id}</td>
+            <td>${rent.user.id}</td>
+            <td>${rent.book.id}</td>
+            <td>${rent.from_date}</td>
+            <td>${rent.to_date}</td>
+            <td>${rent.jarima}</td>
+            <td>${rent.active}</td>
+            <td>
+                <form action="/return-rent" method="post" style="display:inline;">
+                    <input type="hidden" name="id" value="${rent.id}">
+                    <button type="submit">Return</button>
+                </form>
+            </td>
+        </tr>
+    </c:forEach>
+</table>
+
+</body>
+</html>
